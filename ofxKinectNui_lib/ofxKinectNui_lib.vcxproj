@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{20F9C0E2-B884-4AE6-9C1F-E97FD4350624}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>emptyExample</RootNamespace>
+    <ProjectName>ofxKinectNui_lib</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_debug</TargetName>
+    <LinkIncremental>true</LinkIncremental>
+    <GenerateManifest>true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\src;$(KINECTSDK10_DIR)\inc</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>Kinect10.lib;msdmo.lib;dmoguids.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(KINECTSDK10_DIR)\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command />
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>Kinect10.lib;msdmo.lib;dmoguids.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(KINECTSDK10_DIR)\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\src;$(KINECTSDK10_DIR)\inc</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>Kinect10.lib;msdmo.lib;dmoguids.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(KINECTSDK10_DIR)\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command />
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalDependencies>Kinect10.lib;msdmo.lib;dmoguids.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(KINECTSDK10_DIR)\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\kinect\nui\AudioStream.cpp" />
+    <ClCompile Include="..\src\kinect\nui\ImageFrame.cpp" />
+    <ClCompile Include="..\src\kinect\nui\ImageStream.cpp" />
+    <ClCompile Include="..\src\kinect\nui\Kinect.cpp" />
+    <ClCompile Include="..\src\kinect\nui\KinectContext.cpp" />
+    <ClCompile Include="..\src\kinect\nui\SkeletonEngine.cpp" />
+    <ClCompile Include="..\src\kinect\nui\SkeletonFrame.cpp" />
+    <ClCompile Include="..\src\ofxKinectNui.cpp" />
+    <ClCompile Include="..\src\ofxKinectNuiDraw.cpp" />
+    <ClCompile Include="..\src\ofxKinectNuiPlayer.cpp" />
+    <ClCompile Include="..\src\ofxKinectNuiRecorder.cpp" />
+    <ClCompile Include="..\src\ofxKinectNuiSoundRecorder.cpp" />
+    <ClCompile Include="..\src\win32\Event.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\kinect\nui\AudioStream.h" />
+    <ClInclude Include="..\src\kinect\nui\ImageFrame.h" />
+    <ClInclude Include="..\src\kinect\nui\ImageStream.h" />
+    <ClInclude Include="..\src\kinect\nui\Kinect.h" />
+    <ClInclude Include="..\src\kinect\nui\KinectContext.h" />
+    <ClInclude Include="..\src\kinect\nui\KinectListener.h" />
+    <ClInclude Include="..\src\kinect\nui\SkeletonEngine.h" />
+    <ClInclude Include="..\src\kinect\nui\SkeletonFrame.h" />
+    <ClInclude Include="..\src\kinect\nui\StaticMediaBuffer.h" />
+    <ClInclude Include="..\src\kinect\nui\WaveFileWriter.h" />
+    <ClInclude Include="..\src\kinect\nui\WaveOutput.h" />
+    <ClInclude Include="..\src\ofxBase3DVideo.h" />
+    <ClInclude Include="..\src\ofxKinectNui.h" />
+    <ClInclude Include="..\src\ofxKinectNuiDraw.h" />
+    <ClInclude Include="..\src\ofxKinectNuiDrawInterface.h" />
+    <ClInclude Include="..\src\ofxKinectNuiPlayer.h" />
+    <ClInclude Include="..\src\ofxKinectNuiRecorder.h" />
+    <ClInclude Include="..\src\ofxKinectNuiSoundRecorder.h" />
+    <ClInclude Include="..\src\win32\Event.h" />
+    <ClInclude Include="..\src\win32\SpinLock.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
+    </ResourceCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>
